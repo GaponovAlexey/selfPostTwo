@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export default function PostScreen() {
 	return (
 		<View>
-			<Text></Text>
+			<Text>post</Text>
 		</View>
 	)
 }
