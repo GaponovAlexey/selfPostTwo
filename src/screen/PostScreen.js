@@ -4,6 +4,7 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import { AppHeaderIcon } from '../components/AppHeaderIcon'
 import { DATA } from '../data'
 import { THEME } from '../THEME'
+import { AboutScreen } from './AboutScreen'
 
 export default function PostScreen({ route, navigation }) {
 	//console.log(route.params);
@@ -30,13 +31,6 @@ export default function PostScreen({ route, navigation }) {
 						iconName={ booked ? iconName : 'ios-star-outline' }
 					onPress={ () => console.log('icon') } />
 				</HeaderButtons>),
-			//headerLeft: () => (
-			//	<HeaderButtons left HeaderButtonComponent={ AppHeaderIcon }>
-			//		<Item
-			//			title='Togle'
-			//			iconName='ios-menu'
-			//			onPress={ () => console.log('icon') } />
-			//	</HeaderButtons>),
 		})
 	}, [navigation]);
 
