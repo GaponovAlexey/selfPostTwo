@@ -1,26 +1,36 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useLayoutEffect } from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native'
+import { Post } from '../components/Post';
+import { DATA } from '../data';
+import { THEME } from '../THEME';
 
 export default function MainScreen({ route, navigation }) {
-	const goPostScreen = () => {
-		navigation.navigate('PostScreen', {})
+	const openPostHandler = post => {
+		navigation.navigate('PostScreen', { postId: post.id, date: post.date })
 	}
-
-	useLayoutEffect(() => {
-		navigation.setOptions({
-			headerTitle: 'da',
-			headerStyle: { backgroundColor: 'red' }
-		});
-	}, [navigation, route]);
+	//useLayoutEffect(() => {
+	//	navigation.setOptions({
+	//		headerTitle: 'da',
+	//	});
+	//}, [route, navigation]);
 
 
 	return (
 		<View>
-			<Text>Main</Text>
-			<Button title='post' onPress={ goPostScreen } />
+			<FlatList
+				style={ styles.wraper }
+				data={ DATA }
+				keyExtractor={ item => item.id.toString() }
+				renderItem={ ({ item }) => <Post post={ item } onOpen={ openPostHandler } /> }
+
+			/>
 		</View>
 	)
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+	wraper: {
+		padding: 10,
+	}
+})
