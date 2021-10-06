@@ -5,6 +5,24 @@ import PostScreen from '../screen/PostScreen';
 import MainScreen from '../screen/MainScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import { THEME } from '../THEME';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+
+const BookTabNav = createStackNavigator()
+
+function Home() {
+	return (
+		<BookTabNav.Navigator>
+			<BookTabNav.Screen name='Home' component={ MainScreen } />
+			<BookTabNav.Screen component={ PostScreen } />
+		</BookTabNav.Navigator>
+	);
+}
+
+const BootomNavigator = createBottomTabNavigator()
+
+
+
 
 const Stack = createStackNavigator();
 
@@ -13,27 +31,23 @@ export default function Navigations() {
 		<NavigationContainer>
 			<Stack.Navigator
 				initialRouteName='Home'
-				style={ styles.main }
 				screenOptions={ {
-					headerStyle: { backgroundColor: '#000' },
+					headerStyle: { backgroundColor: '#fff' },
 					headerTintColor: Platform.OS === 'android' ? THEME.DANGER_COLOR : '#000',
-
 				} }
 			>
 				<Stack.Screen component={ MainScreen } name='Home'
 					options={ { backgroundColor: 'red' } }
 				/>
+				<Stack.Screen component={ Home } name='Homes'
+					options={ { headerShown: false } }
+				/>
 				<Stack.Screen component={ PostScreen } name='PostScreen'
+					options={ {} }
 				/>
 			</Stack.Navigator>
 		</NavigationContainer >
 	);
 }
 
-const styles = StyleSheet.create({
-	main: {
-		padding: 55,
-		paddingHorizontal: 5,
-		paddingVertical: 5,
-	}
-})
+
