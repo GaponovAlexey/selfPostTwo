@@ -22,6 +22,7 @@ export default function PostScreen({ route, navigation }) {
 
 	useLayoutEffect(() => {
 		navigation.setOptions({
+			tabBarLabel: 'all',
 			headerTitle: 'title' + new Date(date).toLocaleDateString(),
 			headerRight: () => (
 				<HeaderButtons left HeaderButtonComponent={ AppHeaderIcon }>

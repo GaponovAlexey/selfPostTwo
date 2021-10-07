@@ -1,14 +1,13 @@
-import { useNavigation } from '@react-navigation/core';
 import React, { useLayoutEffect } from 'react'
-import { Button, FlatList, StyleSheet, Text, View } from 'react-native'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { AppHeaderIcon } from '../components/AppHeaderIcon';
-import { Post } from '../components/Post';
+import { PostList } from '../components/PostList';
 import { DATA } from '../data';
-import { THEME } from '../THEME';
 
 
 export default function MainScreen({ navigation }) {
+
+	
 	const openPostHandler = post => {
 		navigation.navigate('PostScreen',
 			{ postId: post.id, date: post.date, booked: post.booked, })
@@ -19,36 +18,23 @@ export default function MainScreen({ navigation }) {
 			headerRight: () => (
 				<HeaderButtons left HeaderButtonComponent={ AppHeaderIcon }>
 					<Item
-						title='Test'
+						title='Home'
 						iconName='ios-camera'
 						onPress={ () => console.log('icon') } />
 				</HeaderButtons>),
 			headerLeft: () => (
 				<HeaderButtons left HeaderButtonComponent={ AppHeaderIcon }>
 					<Item
-						title='Togle'
+						title='Home'
 						iconName='ios-menu'
-						onPress={ () => console.log('icon') } />
+						onPress={ () => navigation.openDrawer() }/>
 				</HeaderButtons>),
 		})
 	}, [navigation]);
 
 
 	return (
-		<View>
-			<FlatList
-				style={ styles.wraper }
-				data={ DATA }
-				keyExtractor={ item => item.id.toString() }
-				renderItem={ ({ item }) => <Post post={ item } onOpen={ openPostHandler } /> }
-
-			/>
-		</View>
+		<PostList data={ DATA } onOpen={ openPostHandler } />
 	)
 }
 
-const styles = StyleSheet.create({
-	wraper: {
-		padding: 10,
-	}
-})

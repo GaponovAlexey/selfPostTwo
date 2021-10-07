@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export function AboutScreen() {
 	return (
 		<View>
-			<Text></Text>
+			<Text>pikachu</Text>
 		</View>
 	)
 }
