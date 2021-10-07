@@ -8,9 +8,10 @@ import { DATA } from '../data';
 import { THEME } from '../THEME';
 
 
-export default function MainScreen({ route, navigation }) {
+export default function MainScreen({ navigation }) {
 	const openPostHandler = post => {
-		navigation.navigate('PostScreen', { postId: post.id, date: post.date, booked: post.booked, })
+		navigation.navigate('PostScreen',
+			{ postId: post.id, date: post.date, booked: post.booked, })
 	}
 
 	useLayoutEffect(() => {

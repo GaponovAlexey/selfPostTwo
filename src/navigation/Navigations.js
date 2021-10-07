@@ -32,6 +32,7 @@ export default function Navigations() {
 				<Tab.Screen name='BookedScreen' component={ BookedScreen } options={ {
 					tabBarIcon: color => <Ionicons name='ios-star' size={ 25 } color={ color.color } />
 				} } />
+				
 			</Tab.Navigator>
 		</NavigationContainer >
 	);

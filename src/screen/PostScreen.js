@@ -7,7 +7,6 @@ import { THEME } from '../THEME'
 import { AboutScreen } from './AboutScreen'
 
 export default function PostScreen({ route, navigation }) {
-	//console.log(route.params);
 	const postId = route.params.postId
 	const date = route.params.date
 	const booked = route.params.booked
