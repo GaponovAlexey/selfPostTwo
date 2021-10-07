@@ -12,6 +12,7 @@ export default function BookedScreen({ navigation }) {
 
 	useLayoutEffect(() => {
 		navigation.setOptions({
+			
 
 			headerRight: () => (
 				<HeaderButtons left HeaderButtonComponent={ AppHeaderIcon }>

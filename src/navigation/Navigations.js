@@ -5,7 +5,7 @@ import PostScreen from '../screen/PostScreen';
 import MainScreen from '../screen/MainScreen';
 import { THEME } from '../THEME';
 import { AboutScreen } from '../screen/AboutScreen';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons'; 
 import BookedScreen from '../screen/BookedScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -29,7 +29,7 @@ const StakHome = () => (
 const StakBookedScreen = () => (
 	<Stack.Navigator>
 		<Stack.Screen name="Home" component={ BookedScreen } />
-		<Stack.Screen name="PostScreen" component={ PostScreen } />
+		<Stack.Screen name="PostScreen" component={ PostScreen }  />
 	</Stack.Navigator>
 )
 
@@ -61,13 +61,13 @@ const About = createStackNavigator()
 
 
 const AboutNavigator = () => (
-	<About.Navigator screenOptions={ { headerShown: false } }>
-		<About.Screen name="Title" component={ AboutScreen } />
+	<About.Navigator >
+		<About.Screen name="About" component={ AboutScreen } />
 	</About.Navigator>
 )
 const CreateNavigator = () => (
-	<About.Navigator screenOptions={ { headerShown: false } }>
-		<About.Screen name="Title" component={ CreateScreen } />
+	<About.Navigator>
+		<About.Screen name="Create" component={ CreateScreen } />
 	</About.Navigator>
 )
 //drow
@@ -76,9 +76,9 @@ const DrowNavigators = () => (
 		screenOptions={ { headerShown: false } }
 		defaultScreenOptions='Home'
 		initialRouteName="Home"  >
-		<Drow.Screen name="Title" component={ TabNavigator } />
-		<Drow.Screen name="AboutScreen" component={ AboutNavigator } />
-		<Drow.Screen name="CreateScreen" component={ CreateNavigator } />
+		<Drow.Screen name="Title" component={ TabNavigator } options={ { drawerLabel: 'Главна', drawerIcon: () => <Ionicons name="star-half" size={ 15 } color="black" />  }} />
+		<Drow.Screen name="AboutScreen" component={ AboutNavigator } options={ { drawerLabel: 'Инфо' } } />
+		<Drow.Screen name="CreateScreen" component={ CreateNavigator } options={ { drawerLabel: 'Создать' } } />
 	</Drow.Navigator>
 )
 

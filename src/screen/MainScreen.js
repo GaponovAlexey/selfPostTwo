@@ -6,8 +6,6 @@ import { DATA } from '../data';
 
 
 export default function MainScreen({ navigation }) {
-
-	
 	const openPostHandler = post => {
 		navigation.navigate('PostScreen',
 			{ postId: post.id, date: post.date, booked: post.booked, })
@@ -18,16 +16,16 @@ export default function MainScreen({ navigation }) {
 			headerRight: () => (
 				<HeaderButtons left HeaderButtonComponent={ AppHeaderIcon }>
 					<Item
-						title='Home'
+						title='Take-Photo'
 						iconName='ios-camera'
-						onPress={ () => console.log('icon') } />
+						onPress={ () => navigation.navigate('AboutScreen') } />
 				</HeaderButtons>),
 			headerLeft: () => (
 				<HeaderButtons left HeaderButtonComponent={ AppHeaderIcon }>
 					<Item
 						title='Home'
 						iconName='ios-menu'
-						onPress={ () => navigation.openDrawer() }/>
+						onPress={ () => navigation.openDrawer() } />
 				</HeaderButtons>),
 		})
 	}, [navigation]);
