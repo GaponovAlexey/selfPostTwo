@@ -3,7 +3,6 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppHeaderIcon } from '../components/AppHeaderIcon';
 import { PostList } from '../components/PostList';
-import { DATA } from '../data';
 import { LoadPosts } from '../store/actions/actions';
 
 
