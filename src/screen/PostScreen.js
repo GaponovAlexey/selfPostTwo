@@ -3,7 +3,6 @@ import { Alert, Button, Image, ScrollView, StyleSheet, Text, View } from 'react-
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppHeaderIcon } from '../components/AppHeaderIcon'
-import { DATA } from '../data'
 import { TogglBooked } from '../store/actions/actions'
 import { THEME } from '../THEME'
 import { AboutScreen } from './AboutScreen'
@@ -11,8 +10,8 @@ import { AboutScreen } from './AboutScreen'
 export default function PostScreen({ route, navigation }) {
 	const postId = route.params.postId
 	const date = route.params.date
-	//const booked = route.params.booked
-	const post = DATA.find(p => p.id === postId)
+	const allPosts = useSelector(state => state.post.allPosts)
+	const post = allPosts.find(p => p.id === postId)
 
 
 	const dispatch = useDispatch()
