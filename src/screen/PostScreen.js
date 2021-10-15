@@ -60,6 +60,7 @@ export default function PostScreen({ route, navigation }) {
 				<Text style={ styles.title } >
 					{ post.text.repeat(1) }
 				</Text>
+				
 			</View>
 			<Button title='delete' color={ THEME.DANGER_COLOR } onPress={ removeHandler } />
 		</ScrollView>
